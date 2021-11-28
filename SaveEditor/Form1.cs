@@ -477,15 +477,18 @@ namespace SaveEditor
                     if (checkBoxSyncVars.Checked)
                     {
                         numericAbilities.Value += cb.Checked ? 1 : -1;
+                        var firstdj = (paa.ElementAt(6 - 1).Checked ? 1 : 0) +
+                                      (paa.ElementAt(7 - 1).Checked ? 1 : 0) +
+                                      (paa.ElementAt(8 - 1).Checked ? 1 : 0) == (cb.Checked ? 1 : 0);
 
                         switch (index)
                         {
                             case 1 - 1: numericJump.Value += cb.Checked ? 1 : -1; break;
                             case 2 - 1: numericJump.Value += cb.Checked ? 1 : -1; break;
                             case 3 - 1: numericJump.Value += cb.Checked ? 1 : -1; break;
-                            case 6 - 1: numericDoubleJump.Value += cb.Checked ? 1 : -1; break;
-                            case 7 - 1: numericDoubleJump.Value += cb.Checked ? 1 : -1; break;
-                            case 8 - 1: numericDoubleJump.Value += cb.Checked ? 1 : -1; break;
+                            case 6 - 1: numericDoubleJump.Value += cb.Checked ? (firstdj ? 4 : 1) : (firstdj ? -4 : -1); break;
+                            case 7 - 1: numericDoubleJump.Value += cb.Checked ? (firstdj ? 4 : 1) : (firstdj ? -4 : -1); break;
+                            case 8 - 1: numericDoubleJump.Value += cb.Checked ? (firstdj ? 4 : 1) : (firstdj ? -4 : -1); break;
                             case 18 - 1: numericMaxair.Value += cb.Checked ? 50 : -50; break;
                             case 19 - 1: numericMaxair.Value += cb.Checked ? 50 : -50; break;
                         }
